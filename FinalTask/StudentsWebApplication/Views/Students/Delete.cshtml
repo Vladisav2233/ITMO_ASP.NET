@@ -1,0 +1,60 @@
+﻿@model StudentViewModel
+
+@{
+    ViewData["Title"] = "Удаление";
+}
+
+<h3>Вы действительно желаете удалить данные по студенту из БД?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patronymic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade3)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.Id">
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <input type="submit" value="Назад" asp-action="Index" class="btn btn-secondary" />
+    </form>
+    <br />
+</div>

@@ -1,0 +1,72 @@
+﻿@model DisplayStudentsViewModel
+
+@{
+
+    ViewBag.Title = "Мои студенты";
+
+}
+
+<a class="btn btn-primary" asp-action="Create">Создать</a>
+
+<br />
+@if (Model.Students.Any()){
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Html.DisplayNameFor(model => model.Students.First().Id)</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.First().LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.First().FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.First().Patronymic)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Students.First().Birthday)</th>
+                <th>@Html.DisplayNameFor(model => model.Students.First().Grade1)</th>
+                <th>@Html.DisplayNameFor(model => model.Students.First().Grade2)</th>
+                <th>@Html.DisplayNameFor(model => model.Students.First().Grade3)</th>
+                <th>@Html.DisplayNameFor(model => model.Students.First().Grade)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+                    <td>
+                        <a class="btn btn-light" asp-action="Delete" asp-route-id="@student.Id" class="text-danger">
+                           Delete
+                        </a>
+
+                    </td>
+                    <td>@student.Id</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@student.Id">@student.LastName</a>
+                    </td>
+                    <td>@student.FirstName</td>
+                    <td>@student.Patronymic</td>
+                    <td>@student.Birthday.ToString("d")</td>
+                    <td>@student.Grade1</td>
+                    <td>@student.Grade2</td>
+                    <td>@student.Grade3</td>
+                    <td>@student.Grade</td>
+                    <td>
+                        <a class="btn btn-light" asp-action="Edit" asp-route-id="@student.Id">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}
+else{
+    <p>Студентов пока нет</p>
+}
+
